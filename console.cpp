@@ -80,7 +80,10 @@ void Console::write(const string &s) {
 
     // Since a read is in progress, the prompt and user input is being displayed
     // at the bottom of the terminal. We must erase the prompt and user input 
-    // and write the string, and then rewrite the prompt and user input
+    // and write the string. Now that the string has been written, we can restore
+    // the prompt and user input that we erased.
+    // The erase and restoration of the user prompt and user input occurs 
+    // extremely fast
 
                 // move cursor to the start of the prompt and user input
     std::cout << '\r'  
